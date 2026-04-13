@@ -1,68 +1,21 @@
-import { useState } from "react";
-
 const ChatBot = () => {
-  const [open, setOpen] = useState(false);
-
   return (
-    <>
-      {/* Floating Button */}
-      <button
-        onClick={() => setOpen(!open)}
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          right: "20px",
-          padding: "15px 20px",
-          borderRadius: "50%",
-          backgroundColor: "#0078ff",
-          color: "white",
-          border: "none",
-          fontSize: "18px",
-          cursor: "pointer"
-        }}
-      >
-        💬
-      </button>
+    <aside className="h-[70vh] min-h-[520px] overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl lg:h-full">
+      <header className="flex items-center justify-between border-b border-slate-200 bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-4">
+        <h2 className="text-lg font-semibold text-white">AI Assistant</h2>
+        <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white">
+          Online
+        </span>
+      </header>
 
-      {/* Chat Window */}
-      {open && (
-        <div
-          style={{
-            position: "fixed",
-            bottom: "80px",
-            right: "20px",
-            width: "350px",
-            height: "500px",
-            boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
-            borderRadius: "10px",
-            overflow: "hidden",
-            background: "white"
-          }}
-        >
-          {/* Header */}
-          <div
-            style={{
-              background: "#0078ff",
-              color: "white",
-              padding: "10px",
-              fontWeight: "bold"
-            }}
-          >
-            My Copilot Assistant
-          </div>
-
-          {/* Iframe Chat */}
-          <iframe
-            src="https://copilotstudio.microsoft.com/environments/aa332dbd-0e82-ed44-bfa3-f2516084255a/bots/auto_agent_pzrmV/webchat?__version__=2"
-            style={{
-              width: "100%",
-              height: "100%",
-              border: "none"
-            }}
-          />
-        </div>
-      )}
-    </>
+      <div className="h-[calc(100%-73px)] w-full overflow-hidden">
+        <iframe
+          src="https://copilotstudio.microsoft.com/environments/aa332dbd-0e82-ed44-bfa3-f2516084255a/bots/auto_agent_pzrmV/webchat?__version__=2"
+          title="AI Assistant Chat"
+          className="h-full w-full border-0"
+        />
+      </div>
+    </aside>
   );
 };
 
